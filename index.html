@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mettabhavana Trance</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --rosa-neon: #ff00a8;
+        --magenta: #ff2fb3;
+        --amarillo: #ffe600;
+        --verde-acido: #39ff14;
+        --cian: #00e5ff;
+        --azul-violeta: #5a00ff;
+        --purpura: #2b0057;
+        --negro: #05010a;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .app-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .grid-bg {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba(90, 0, 255, 0.4) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 80% 80%,
+            rgba(255, 0, 168, 0.2) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            ellipse at 20% 60%,
+            rgba(43, 0, 87, 0.6) 0%,
+            transparent 50%
+          ),
+          var(--negro);
+        background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%,
+          100%;
+      }
+
+      .glow-text {
+        text-shadow: none;
+      }
+
+      .glow-text-cyan {
+        text-shadow: none;
+      }
+
+      .glow-text-yellow {
+        text-shadow: none;
+      }
+
+      .neon-border {
+        border: 2px solid var(--rosa-neon);
+        box-shadow: none;
+      }
+
+      .neon-border-cyan {
+        border: 2px solid var(--cian);
+        box-shadow: none;
+      }
+
+      .pulse-glow {
+        animation: none;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          filter: none;
+        }
+        50% {
+          filter: none;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .float-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes scanline {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+
+      .scanline::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: linear-gradient(
+          transparent 50%,
+          rgba(0, 229, 255, 0.02) 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+      }
+
+      @keyframes rotate3d {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .rotate-slow {
+        animation: rotate3d 20s linear infinite;
+      }
+
+      .gradient-border {
+        background: var(--negro);
+        border: 2px solid var(--rosa-neon);
+      }
+
+      .btn-neon {
+        background: var(--rosa-neon);
+        box-shadow: none;
+        transition: all 0.3s ease;
+      }
+
+      .btn-neon:hover {
+        box-shadow: none;
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      .value-card {
+        background: rgba(43, 0, 87, 0.3);
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(255, 0, 168, 0.2);
+      }
+
+      .lotus-symbol {
+        filter: none;
+      }
+
+      @keyframes bpm {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .bpm-pulse {
+        animation: bpm 0.43s ease-in-out infinite; /* 140 BPM */
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+      .delay-5 {
+        animation-delay: 0.5s;
+      }
+    </style>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full">
+    <div class="app-wrapper grid-bg scanline">
+      <!-- Navigation -->
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-gradient-to-b from-black/80 to-transparent"
+      >
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <svg class="w-10 h-10 lotus-symbol" viewbox="0 0 100 100">
+              <path
+                d="M50 10 C40 30, 20 40, 10 50 C20 55, 35 55, 50 50 C65 55, 80 55, 90 50 C80 40, 60 30, 50 10"
+                fill="none"
+                stroke="#FF00A8"
+                stroke-width="2"
+              />
+              <path
+                d="M50 20 C45 35, 30 42, 25 50 C35 52, 42 52, 50 48 C58 52, 65 52, 75 50 C70 42, 55 35, 50 20"
+                fill="none"
+                stroke="#FF2FB3"
+                stroke-width="2"
+              />
+              <circle
+                cx="50"
+                cy="45"
+                r="8"
+                fill="none"
+                stroke="#FFE600"
+                stroke-width="2"
+              />
+              <path
+                d="M50 55 L50 75 M40 65 L60 65"
+                stroke="#00E5FF"
+                stroke-width="2"
+              /></svg
+            ><span
+              id="nav-brand"
+              class="font-bold text-xl tracking-wider"
+              style="font-family: 'Orbitron', sans-serif; color: #ff00a8"
+              >METTABHAVANA</span
+            >
+          </div>
+          <div class="hidden md:flex gap-8">
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-white transition-colors"
+              style="font-family: 'Rajdhani', sans-serif"
+              >Nosotros</a
+            >
+            <a
+              href="#mission"
+              class="text-gray-300 hover:text-white transition-colors"
+              style="font-family: 'Rajdhani', sans-serif"
+              >Misión</a
+            >
+            <a
+              href="#values"
+              class="text-gray-300 hover:text-white transition-colors"
+              style="font-family: 'Rajdhani', sans-serif"
+              >Valores</a
+            >
+            <a
+              href="#products"
+              class="text-gray-300 hover:text-white transition-colors"
+              style="font-family: 'Rajdhani', sans-serif"
+              >Productos</a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- Hero Section -->
+      <section
+        class="min-h-screen flex flex-col items-center justify-center px-6 pt-20 relative overflow-hidden"
+      >
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            class="absolute top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-r from-pink-500/10 to-purple-500/10 blur-3xl float-animation"
+          ></div>
+          <div
+            class="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 blur-3xl float-animation"
+            style="animation-delay: -3s"
+          ></div>
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96"
+          >
+            <svg
+              class="w-full h-full opacity-10 rotate-slow"
+              viewbox="0 0 200 200"
+            >
+              <circle
+                cx="100"
+                cy="100"
+                r="80"
+                fill="none"
+                stroke="#FF00A8"
+                stroke-width="0.5"
+              />
+              <circle
+                cx="100"
+                cy="100"
+                r="60"
+                fill="none"
+                stroke="#00E5FF"
+                stroke-width="0.5"
+              />
+              <circle
+                cx="100"
+                cy="100"
+                r="40"
+                fill="none"
+                stroke="#39FF14"
+                stroke-width="0.5"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- Buddha SVG -->
+        <div class="relative mb-8 fade-in">
+          <svg
+            class="w-48 h-48 md:w-64 md:h-64 pulse-glow"
+            viewbox="0 0 200 200"
+          >
+            <!-- Lotus Base -->
+            <ellipse
+              cx="100"
+              cy="180"
+              rx="60"
+              ry="15"
+              fill="none"
+              stroke="#FF2FB3"
+              stroke-width="1.5"
+              opacity="0.6"
+            />
+            <path
+              d="M40 175 Q70 160 100 175 Q130 160 160 175"
+              fill="none"
+              stroke="#FF00A8"
+              stroke-width="2"
+            />
+            <path
+              d="M50 175 Q75 165 100 175 Q125 165 150 175"
+              fill="none"
+              stroke="#FFE600"
+              stroke-width="1.5"
+            />
+            <!-- Buddha Silhouette -->
+            <ellipse
+              cx="100"
+              cy="55"
+              rx="28"
+              ry="35"
+              fill="none"
+              stroke="#FF00A8"
+              stroke-width="2"
+            />
+            <path
+              d="M72 55 Q100 20 128 55"
+              fill="none"
+              stroke="#FF2FB3"
+              stroke-width="1.5"
+            />
+            <!-- Body -->
+            <path
+              d="M65 85 Q60 120 55 160 L145 160 Q140 120 135 85"
+              fill="none"
+              stroke="#FF00A8"
+              stroke-width="2"
+            />
+            <!-- Hands in meditation -->
+            <ellipse
+              cx="100"
+              cy="140"
+              rx="25"
+              ry="12"
+              fill="none"
+              stroke="#00E5FF"
+              stroke-width="1.5"
+            />
+            <!-- Third Eye -->
+            <circle cx="100" cy="50" r="4" fill="#FFE600" />
+            <!-- Aura rings -->
+            <circle
+              cx="100"
+              cy="90"
+              r="70"
+              fill="none"
+              stroke="#5A00FF"
+              stroke-width="0.5"
+              opacity="0.5"
+            />
+            <circle
+              cx="100"
+              cy="90"
+              r="80"
+              fill="none"
+              stroke="#00E5FF"
+              stroke-width="0.5"
+              opacity="0.3"
+            />
+            <circle
+              cx="100"
+              cy="90"
+              r="90"
+              fill="none"
+              stroke="#39FF14"
+              stroke-width="0.5"
+              opacity="0.2"
+            />
+          </svg>
+        </div>
+        <!-- Title -->
+        <h1
+          id="hero-title"
+          class="text-4xl md:text-6xl lg:text-7xl font-black text-center glow-text mb-4 fade-in delay-1"
+          style="font-family: 'Orbitron', sans-serif; color: #ff00a8"
+        >
+          METTABHAVANA<br />
+          TRANCE
+        </h1>
+        <p
+          id="hero-tagline"
+          class="text-xl md:text-2xl text-center mb-8 fade-in delay-2"
+          style="font-family: 'Rajdhani', sans-serif; color: #00e5ff"
+        >
+          El despertar espiritual a 140 BPM
+        </p>
+        <!-- BPM Counter -->
+        <div class="flex items-center gap-4 mb-10 fade-in delay-3">
+          <div
+            class="flex items-center gap-2 px-4 py-2 rounded-full gradient-border"
+          >
+            <div class="w-3 h-3 rounded-full bg-green-400 bpm-pulse"></div>
+            <span class="text-sm font-mono" style="color: #39ff14"
+              >140 BPM</span
+            >
+          </div>
+          <div
+            class="flex items-center gap-2 px-4 py-2 rounded-full gradient-border"
+          >
+            <span
+              class="text-sm"
+              style="font-family: 'Rajdhani', sans-serif; color: #ffe600"
+              >☸ Dharma Active</span
+            >
+          </div>
+        </div>
+        <a
+          href="#products"
+          id="cta-button"
+          class="btn-neon px-10 py-4 rounded-full text-white font-bold text-lg tracking-wider fade-in delay-4"
+          style="font-family: 'Orbitron', sans-serif"
+        >
+          EXPLORAR COLECCIÓN
+        </a>
+        <!-- Scroll indicator -->
+        <div
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="#00E5FF" viewbox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section id="about" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+          <h2
+            id="about-title"
+            class="text-3xl md:text-5xl font-bold text-center mb-12 glow-text-cyan"
+            style="font-family: 'Orbitron', sans-serif; color: #00e5ff"
+          >
+            Quiénes Somos
+          </h2>
+          <div
+            class="gradient-border rounded-2xl p-8 md:p-12 bg-black/40 backdrop-blur-sm"
+          >
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+              <div class="flex-shrink-0">
+                <svg class="w-32 h-32 md:w-48 md:h-48" viewbox="0 0 150 150">
+                  <!-- Dharma Wheel -->
+                  <circle
+                    cx="75"
+                    cy="75"
+                    r="60"
+                    fill="none"
+                    stroke="#FF00A8"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="75"
+                    cy="75"
+                    r="45"
+                    fill="none"
+                    stroke="#FF2FB3"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="75"
+                    cy="75"
+                    r="15"
+                    fill="none"
+                    stroke="#FFE600"
+                    stroke-width="2"
+                  />
+                  <!-- Spokes -->
+                  <g stroke="#00E5FF" stroke-width="1.5">
+                    <line x1="75" y1="15" x2="75" y2="60" />
+                    <line x1="75" y1="90" x2="75" y2="135" />
+                    <line x1="15" y1="75" x2="60" y2="75" />
+                    <line x1="90" y1="75" x2="135" y2="75" />
+                    <line x1="32" y1="32" x2="54" y2="54" />
+                    <line x1="96" y1="96" x2="118" y2="118" />
+                    <line x1="118" y1="32" x2="96" y2="54" />
+                    <line x1="54" y1="96" x2="32" y2="118" />
+                  </g>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p
+                  class="text-lg md:text-xl leading-relaxed mb-6"
+                  style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+                >
+                  Todo empezó con una pregunta muy simple:
+                </p>
+                <p
+                  class="text-2xl md:text-3xl font-bold leading-relaxed mb-8"
+                  style="font-family: 'Orbitron', sans-serif; color: #ff2fb3"
+                >
+                  ¿Y si el Dharma también pudiera bailar?
+                </p>
+                <p
+                  class="text-lg md:text-xl leading-relaxed mb-6"
+                  style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+                >
+                  Entre beats, amaneceres de festival y conversaciones profundas
+                  bajo luces de neón nació
+                  <span class="text-pink-400 font-semibold"
+                    >Mettabhavana Trance</span
+                  >.
+                </p>
+                <p
+                  class="text-lg md:text-xl leading-relaxed mb-6"
+                  style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+                >
+                  Una marca que mezcla
+                  <span class="text-yellow-400">budismo</span>,
+                  <span class="text-pink-400">amor benevolente (mettā)</span> y
+                  <span class="text-cyan-400">cultura rave</span> en forma de
+                  ropa y accesorios.
+                </p>
+                <p
+                  class="text-lg md:text-xl leading-relaxed mb-6"
+                  style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+                >
+                  Diseñamos
+                  <span class="text-purple-400"
+                    >kimonos, bandoleras, mochilas y objetos</span
+                  >
+                  para el viaje. Para bailar. Para perderte entre luces. Para
+                  encontrar a tu gente.
+                </p>
+                <p
+                  class="text-lg md:text-xl leading-relaxed italic"
+                  style="font-family: 'Rajdhani', sans-serif; color: #00e5ff"
+                >
+                  Un recordatorio de que la compasión también puede tener
+                  glitter y que a veces la Sangha aparece en medio de un
+                  dancefloor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Mission & Vision -->
+      <section id="mission" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+          <!-- Mission -->
+          <div
+            class="neon-border rounded-2xl p-8 bg-black/40 backdrop-blur-sm hover:scale-105 transition-transform duration-300"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <svg class="w-12 h-12" viewbox="0 0 50 50">
+                <circle
+                  cx="25"
+                  cy="25"
+                  r="20"
+                  fill="none"
+                  stroke="#FF00A8"
+                  stroke-width="2"
+                />
+                <path
+                  d="M25 10 L25 25 L35 35"
+                  fill="none"
+                  stroke="#FFE600"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <circle cx="25" cy="25" r="3" fill="#FF2FB3" />
+              </svg>
+              <h3
+                id="mission-title"
+                class="text-2xl md:text-3xl font-bold glow-text"
+                style="font-family: 'Orbitron', sans-serif; color: #ff00a8"
+              >
+                Misión
+              </h3>
+            </div>
+            <p
+              class="text-lg leading-relaxed mb-4"
+              style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+            >
+              Crear piezas que vibren entre
+              <span class="text-yellow-400">espiritualidad</span>,
+              <span class="text-pink-400">arte</span> y
+              <span class="text-cyan-400">cultura rave</span>.
+            </p>
+            <p
+              class="text-lg italic"
+              style="font-family: 'Rajdhani', sans-serif; color: #00e5ff"
+            >
+              Ropa que te acompañe en festivales, viajes, rituales o simplemente
+              en esos momentos donde la vida se siente como música.
+            </p>
+          </div>
+          <!-- Vision -->
+          <div
+            class="neon-border-cyan rounded-2xl p-8 bg-black/40 backdrop-blur-sm hover:scale-105 transition-transform duration-300"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <svg class="w-12 h-12" viewbox="0 0 50 50">
+                <circle
+                  cx="25"
+                  cy="25"
+                  r="15"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="25"
+                  cy="25"
+                  r="8"
+                  fill="none"
+                  stroke="#39FF14"
+                  stroke-width="1.5"
+                />
+                <circle cx="25" cy="25" r="3" fill="#FFE600" />
+                <path
+                  d="M10 25 L3 25 M47 25 L40 25 M25 10 L25 3 M25 47 L25 40"
+                  stroke="#5A00FF"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <h3
+                id="vision-title"
+                class="text-2xl md:text-3xl font-bold glow-text-cyan"
+                style="font-family: 'Orbitron', sans-serif; color: #00e5ff"
+              >
+                Visión
+              </h3>
+            </div>
+            <p
+              class="text-lg leading-relaxed mb-4"
+              style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+            >
+              Imaginar un mundo donde la
+              <span class="text-green-400">conciencia</span> no sea solemne,
+              sino viva, colorida y compartida.
+            </p>
+            <p
+              class="text-lg italic"
+              style="font-family: 'Rajdhani', sans-serif; color: #39ff14"
+            >
+              Un mundo donde el Dharma pueda aparecer entre láseres, estrellas,
+              beats y sonrisas desconocidas.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Values -->
+      <section id="values" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-center mb-16 glow-text-yellow"
+            style="font-family: 'Orbitron', sans-serif; color: #ffe600"
+          >
+            Valores
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Mettā -->
+            <div class="value-card rounded-xl p-6 text-center gradient-border">
+              <div class="text-5xl mb-4">🌈</div>
+              <h4
+                class="text-xl font-bold mb-2"
+                style="font-family: 'Orbitron', sans-serif; color: #ff00a8"
+              >
+                Mettā
+              </h4>
+              <p
+                class="text-sm"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Amor benevolente, buena vibra y cuidado mutuo.
+              </p>
+            </div>
+            <!-- Sangha -->
+            <div class="value-card rounded-xl p-6 text-center gradient-border">
+              <div class="text-5xl mb-4">🔊</div>
+              <h4
+                class="text-xl font-bold mb-2"
+                style="font-family: 'Orbitron', sans-serif; color: #00e5ff"
+              >
+                Sangha
+              </h4>
+              <p
+                class="text-sm"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                La comunidad que nace cuando la música nos sincroniza.
+              </p>
+            </div>
+            <!-- Playfulness -->
+            <div class="value-card rounded-xl p-6 text-center gradient-border">
+              <div class="text-5xl mb-4">✨</div>
+              <h4
+                class="text-xl font-bold mb-2"
+                style="font-family: 'Orbitron', sans-serif; color: #39ff14"
+              >
+                Playfulness
+              </h4>
+              <p
+                class="text-sm"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Espiritualidad con brillo, humor y creatividad.
+              </p>
+            </div>
+            <!-- Conciencia -->
+            <div class="value-card rounded-xl p-6 text-center gradient-border">
+              <div class="text-5xl mb-4">🪷</div>
+              <h4
+                class="text-xl font-bold mb-2"
+                style="font-family: 'Orbitron', sans-serif; color: #ffe600"
+              >
+                Conciencia
+              </h4>
+              <p
+                class="text-sm"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Respirar, bailar y recordar que estamos vivos.
+              </p>
+            </div>
+            <!-- Respeto -->
+            <div class="value-card rounded-xl p-6 text-center gradient-border">
+              <div class="text-5xl mb-4">🌍</div>
+              <h4
+                class="text-xl font-bold mb-2"
+                style="font-family: 'Orbitron', sans-serif; color: #5a00ff"
+              >
+                Respeto
+              </h4>
+              <p
+                class="text-sm"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Inspirarnos en tradiciones profundas con gratitud y
+                sensibilidad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Products Preview -->
+      <section id="products" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-center mb-4"
+            style="font-family: 'Orbitron', sans-serif; color: #ff2fb3"
+          >
+            Nuestra Colección
+          </h2>
+          <p
+            class="text-center mb-16 text-xl"
+            style="font-family: 'Rajdhani', sans-serif; color: #00e5ff"
+          >
+            Prendas diseñadas para el viaje
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Kimonos -->
+            <div
+              class="group relative overflow-hidden rounded-xl gradient-border bg-black/40 p-6 hover:scale-105 transition-all duration-300"
+            >
+              <div class="aspect-square flex items-center justify-center mb-4">
+                <svg
+                  class="w-32 h-32 group-hover:scale-110 transition-transform"
+                  viewbox="0 0 100 100"
+                >
+                  <path
+                    d="M50 10 L30 20 L25 80 L45 85 L50 90 L55 85 L75 80 L70 20 Z"
+                    fill="none"
+                    stroke="#FF00A8"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M30 20 L20 40 L25 80"
+                    fill="none"
+                    stroke="#FF2FB3"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M70 20 L80 40 L75 80"
+                    fill="none"
+                    stroke="#FF2FB3"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M45 25 L50 30 L55 25"
+                    fill="none"
+                    stroke="#FFE600"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="8"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1"
+                  />
+                </svg>
+              </div>
+              <h4
+                class="text-xl font-bold text-center"
+                style="font-family: 'Orbitron', sans-serif; color: #ff00a8"
+              >
+                Kimonos
+              </h4>
+              <p
+                class="text-sm text-center mt-2"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Flow y estilo en la pista
+              </p>
+            </div>
+            <!-- Bandoleras -->
+            <div
+              class="group relative overflow-hidden rounded-xl gradient-border bg-black/40 p-6 hover:scale-105 transition-all duration-300"
+            >
+              <div class="aspect-square flex items-center justify-center mb-4">
+                <svg
+                  class="w-32 h-32 group-hover:scale-110 transition-transform"
+                  viewbox="0 0 100 100"
+                >
+                  <ellipse
+                    cx="50"
+                    cy="60"
+                    rx="25"
+                    ry="20"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M30 50 Q20 30 50 20 Q80 30 70 50"
+                    fill="none"
+                    stroke="#39FF14"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="40"
+                    y="55"
+                    width="20"
+                    height="15"
+                    rx="2"
+                    fill="none"
+                    stroke="#FFE600"
+                    stroke-width="1.5"
+                  />
+                  <circle cx="50" cy="62" r="3" fill="#FF00A8" />
+                </svg>
+              </div>
+              <h4
+                class="text-xl font-bold text-center"
+                style="font-family: 'Orbitron', sans-serif; color: #00e5ff"
+              >
+                Bandoleras
+              </h4>
+              <p
+                class="text-sm text-center mt-2"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Lo esencial siempre cerca
+              </p>
+            </div>
+            <!-- Mochilas -->
+            <div
+              class="group relative overflow-hidden rounded-xl gradient-border bg-black/40 p-6 hover:scale-105 transition-all duration-300"
+            >
+              <div class="aspect-square flex items-center justify-center mb-4">
+                <svg
+                  class="w-32 h-32 group-hover:scale-110 transition-transform"
+                  viewbox="0 0 100 100"
+                >
+                  <rect
+                    x="25"
+                    y="30"
+                    width="50"
+                    height="55"
+                    rx="5"
+                    fill="none"
+                    stroke="#39FF14"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M35 30 Q35 15 50 15 Q65 15 65 30"
+                    fill="none"
+                    stroke="#FFE600"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="35"
+                    y="45"
+                    width="30"
+                    height="20"
+                    rx="3"
+                    fill="none"
+                    stroke="#FF00A8"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="50"
+                    cy="55"
+                    r="5"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M25 50 L15 55 L15 75 L25 70"
+                    fill="none"
+                    stroke="#5A00FF"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M75 50 L85 55 L85 75 L75 70"
+                    fill="none"
+                    stroke="#5A00FF"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </div>
+              <h4
+                class="text-xl font-bold text-center"
+                style="font-family: 'Orbitron', sans-serif; color: #39ff14"
+              >
+                Mochilas
+              </h4>
+              <p
+                class="text-sm text-center mt-2"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Para el viaje largo
+              </p>
+            </div>
+            <!-- Accesorios -->
+            <div
+              class="group relative overflow-hidden rounded-xl gradient-border bg-black/40 p-6 hover:scale-105 transition-all duration-300"
+            >
+              <div class="aspect-square flex items-center justify-center mb-4">
+                <svg
+                  class="w-32 h-32 group-hover:scale-110 transition-transform"
+                  viewbox="0 0 100 100"
+                >
+                  <!-- Bracelet -->
+                  <ellipse
+                    cx="50"
+                    cy="35"
+                    rx="20"
+                    ry="8"
+                    fill="none"
+                    stroke="#FFE600"
+                    stroke-width="2"
+                  />
+                  <ellipse
+                    cx="50"
+                    cy="35"
+                    rx="15"
+                    ry="5"
+                    fill="none"
+                    stroke="#FF00A8"
+                    stroke-width="1"
+                  />
+                  <!-- Pendant -->
+                  <circle
+                    cx="50"
+                    cy="70"
+                    r="15"
+                    fill="none"
+                    stroke="#FF2FB3"
+                    stroke-width="2"
+                  />
+                  <path d="M50 55 L50 48" stroke="#00E5FF" stroke-width="1.5" />
+                  <path
+                    d="M42 70 L50 62 L58 70 L50 78 Z"
+                    fill="none"
+                    stroke="#39FF14"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </div>
+              <h4
+                class="text-xl font-bold text-center"
+                style="font-family: 'Orbitron', sans-serif; color: #ffe600"
+              >
+                Accesorios
+              </h4>
+              <p
+                class="text-sm text-center mt-2"
+                style="font-family: 'Rajdhani', sans-serif; color: #e5e5e5"
+              >
+                Detalles que completan
+              </p>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <button
+              class="btn-neon px-8 py-3 rounded-full text-white font-bold tracking-wider"
+              style="font-family: 'Orbitron', sans-serif"
+            >
+              VER TODO
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-16 px-6 border-t border-purple-900/50">
+        <div class="max-w-6xl mx-auto">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-8"
+          >
+            <div class="flex items-center gap-3">
+              <svg class="w-12 h-12 lotus-symbol" viewbox="0 0 100 100">
+                <path
+                  d="M50 10 C40 30, 20 40, 10 50 C20 55, 35 55, 50 50 C65 55, 80 55, 90 50 C80 40, 60 30, 50 10"
+                  fill="none"
+                  stroke="#FF00A8"
+                  stroke-width="2"
+                />
+                <path
+                  d="M50 20 C45 35, 30 42, 25 50 C35 52, 42 52, 50 48 C58 52, 65 52, 75 50 C70 42, 55 35, 50 20"
+                  fill="none"
+                  stroke="#FF2FB3"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="50"
+                  cy="45"
+                  r="8"
+                  fill="none"
+                  stroke="#FFE600"
+                  stroke-width="2"
+                />
+              </svg>
+              <div>
+                <p
+                  class="font-bold text-lg"
+                  style="font-family: 'Orbitron', sans-serif; color: #ff00a8"
+                >
+                  METTABHAVANA TRANCE
+                </p>
+                <p
+                  class="text-sm"
+                  style="font-family: 'Rajdhani', sans-serif; color: #00e5ff"
+                >
+                  Dharma × Rave × Amor
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full gradient-border flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <span class="text-lg">📸</span>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full gradient-border flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <span class="text-lg">🎵</span>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full gradient-border flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <span class="text-lg">✉️</span>
+              </a>
+            </div>
+          </div>
+          <div class="mt-10 text-center">
+            <p
+              class="text-sm"
+              style="font-family: 'Rajdhani', sans-serif; color: #5a00ff"
+            >
+              © 2024 Mettabhavana Trance · Hecho con mettā 💗
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const defaultConfig = {
+        hero_title: "METTABHAVANA\nTRANCE",
+        hero_tagline: "El despertar espiritual a 140 BPM",
+        about_title: "Quiénes Somos",
+        mission_title: "Misión",
+        vision_title: "Visión",
+        cta_button_text: "EXPLORAR COLECCIÓN",
+        background_color: "#05010A",
+        primary_color: "#FF00A8",
+        text_color: "#e5e5e5",
+        accent_color: "#00E5FF",
+        secondary_accent: "#FFE600",
+        font_family: "Orbitron",
+        font_size: 16,
+      };
+
+      async function onConfigChange(config) {
+        const heroTitle = document.getElementById("hero-title");
+        if (heroTitle) {
+          const titleText = config.hero_title || defaultConfig.hero_title;
+          heroTitle.innerHTML = titleText.replace("\n", "<br>");
+          heroTitle.style.color =
+            config.primary_color || defaultConfig.primary_color;
+          heroTitle.style.fontFamily = `${
+            config.font_family || defaultConfig.font_family
+          }, sans-serif`;
+        }
+
+        const heroTagline = document.getElementById("hero-tagline");
+        if (heroTagline) {
+          heroTagline.textContent =
+            config.hero_tagline || defaultConfig.hero_tagline;
+          heroTagline.style.color =
+            config.accent_color || defaultConfig.accent_color;
+        }
+
+        const aboutTitle = document.getElementById("about-title");
+        if (aboutTitle) {
+          aboutTitle.textContent =
+            config.about_title || defaultConfig.about_title;
+          aboutTitle.style.color =
+            config.accent_color || defaultConfig.accent_color;
+          aboutTitle.style.fontFamily = `${
+            config.font_family || defaultConfig.font_family
+          }, sans-serif`;
+        }
+
+        const missionTitle = document.getElementById("mission-title");
+        if (missionTitle) {
+          missionTitle.textContent =
+            config.mission_title || defaultConfig.mission_title;
+          missionTitle.style.color =
+            config.primary_color || defaultConfig.primary_color;
+          missionTitle.style.fontFamily = `${
+            config.font_family || defaultConfig.font_family
+          }, sans-serif`;
+        }
+
+        const visionTitle = document.getElementById("vision-title");
+        if (visionTitle) {
+          visionTitle.textContent =
+            config.vision_title || defaultConfig.vision_title;
+          visionTitle.style.color =
+            config.accent_color || defaultConfig.accent_color;
+          visionTitle.style.fontFamily = `${
+            config.font_family || defaultConfig.font_family
+          }, sans-serif`;
+        }
+
+        const ctaButton = document.getElementById("cta-button");
+        if (ctaButton) {
+          ctaButton.textContent =
+            config.cta_button_text || defaultConfig.cta_button_text;
+          ctaButton.style.fontFamily = `${
+            config.font_family || defaultConfig.font_family
+          }, sans-serif`;
+          ctaButton.style.background =
+            config.primary_color || defaultConfig.primary_color;
+        }
+
+        const navBrand = document.getElementById("nav-brand");
+        if (navBrand) {
+          navBrand.style.color =
+            config.primary_color || defaultConfig.primary_color;
+          navBrand.style.fontFamily = `${
+            config.font_family || defaultConfig.font_family
+          }, sans-serif`;
+        }
+
+        // Update all text color elements
+        document.querySelectorAll('[style*="color: #e5e5e5"]').forEach((el) => {
+          el.style.color = config.text_color || defaultConfig.text_color;
+        });
+
+        // Update CSS variables for background
+        document.documentElement.style.setProperty(
+          "--negro",
+          config.background_color || defaultConfig.background_color
+        );
+
+        // Update font size scaling
+        const baseSize = config.font_size || defaultConfig.font_size;
+        document.body.style.fontSize = `${baseSize}px`;
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () =>
+                config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                if (window.elementSdk)
+                  window.elementSdk.setConfig({ background_color: value });
+              },
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                if (window.elementSdk)
+                  window.elementSdk.setConfig({ text_color: value });
+              },
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                if (window.elementSdk)
+                  window.elementSdk.setConfig({ primary_color: value });
+              },
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                if (window.elementSdk)
+                  window.elementSdk.setConfig({ accent_color: value });
+              },
+            },
+            {
+              get: () =>
+                config.secondary_accent || defaultConfig.secondary_accent,
+              set: (value) => {
+                config.secondary_accent = value;
+                if (window.elementSdk)
+                  window.elementSdk.setConfig({ secondary_accent: value });
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              if (window.elementSdk)
+                window.elementSdk.setConfig({ font_family: value });
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              if (window.elementSdk)
+                window.elementSdk.setConfig({ font_size: value });
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          ["hero_tagline", config.hero_tagline || defaultConfig.hero_tagline],
+          ["about_title", config.about_title || defaultConfig.about_title],
+          [
+            "mission_title",
+            config.mission_title || defaultConfig.mission_title,
+          ],
+          ["vision_title", config.vision_title || defaultConfig.vision_title],
+          [
+            "cta_button_text",
+            config.cta_button_text || defaultConfig.cta_button_text,
+          ],
+        ]);
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9d6f42a8c7b5b18f',t:'MTc3MjYxMDMxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
